@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Polyfill window.fetch setter to prevent extensions like frame_ant from throwing:
+      // "TypeError: Cannot set property fetch of #<Window> which has only a getter"
+      (function() {
+        try {
+          var _fetch = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _fetch; },
+            set: function(val) { _fetch = val; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          try {
+            var proto = Object.getPrototypeOf(window);
+            if (proto) {
+              Object.defineProperty(proto, 'fetch', {
+                get: function() { return _fetch; },
+                set: function(val) { _fetch = val; },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          } catch (e2) {}
+        }
+
+        window.addEventListener('error', function(event) {
+          if (
+            (event.filename && (
+              event.filename.indexOf('chrome-extension://') !== -1 ||
+              event.filename.indexOf('frame_ant') !== -1
+            )) ||
+            (event.message && event.message.indexOf('fetch of #<Window>') !== -1)
+          ) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DairyFlow - Bulk Dairy Pre-Order & Payment Management</title>
+    <meta name="description" content="Streamlined bulk dairy pre-orders, advance payment collection, delivery scheduling, and payment tracking for weddings, caterers, and events." />
+    <meta property="og:title" content="DairyFlow - Bulk Dairy Pre-Order & Payment Management" />
+    <meta property="og:description" content="Streamlined bulk dairy pre-orders, advance payment collection, delivery scheduling, and payment tracking for weddings, caterers, and events." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-stone-50 text-stone-900 antialiased selection:bg-amber-100 selection:text-amber-900">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

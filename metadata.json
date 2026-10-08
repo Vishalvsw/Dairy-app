@@ -1,0 +1,6 @@
+{
+  "name": "DairyFlow - Bulk Dairy & Event Order System",
+  "description": "Streamlined bulk dairy pre-orders, advance payment collection, delivery scheduling, and payment tracking for weddings, caterers, and events.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
