@@ -104,12 +104,12 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 const migrateImage = (img?: string): string => {
-  if (!img) return '/images/hero_dairy.jpg';
-  if (img.includes('ghee')) return '/images/ghee.jpg';
-  if (img.includes('paneer') || img.includes('curd')) return '/images/paneer_curd.jpg';
-  if (img.includes('sweet')) return '/images/sweets.jpg';
-  if (img.includes('wedding') || img.includes('package') || img.includes('catering')) return '/images/wedding_catering.jpg';
-  if (img.includes('milk') || img.includes('dairy')) return '/images/hero_dairy.jpg';
+  if (!img) return '/images/hero_dairy_farm_fresh_1791460606584.jpg';
+  if (img.includes('ghee')) return '/images/dairy_ghee_golden_jar_1791460629713.jpg';
+  if (img.includes('paneer') || img.includes('curd')) return '/images/dairy_paneer_curd_spread_1791460618613.jpg';
+  if (img.includes('sweet')) return '/images/dairy_traditional_sweets_1791460640148.jpg';
+  if (img.includes('wedding') || img.includes('package') || img.includes('catering')) return '/images/dairy_wedding_bulk_catering_1791460650403.jpg';
+  if (img.includes('milk') || img.includes('dairy')) return '/images/hero_dairy_farm_fresh_1791460606584.jpg';
   return img;
 };
 

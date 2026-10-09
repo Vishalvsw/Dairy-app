@@ -123,7 +123,7 @@ export const HomePage: React.FC = () => {
                   const el = e.currentTarget;
                   if (!el.dataset.fallback) {
                     el.dataset.fallback = '1';
-                    el.src = '/images/hero_dairy.jpg';
+                    el.src = '/images/hero_dairy_farm_fresh_1791460606584.jpg';
                   }
                 }}
               />
@@ -252,7 +252,7 @@ export const HomePage: React.FC = () => {
                   const el = e.currentTarget;
                   if (!el.dataset.fallback) {
                     el.dataset.fallback = '1';
-                    el.src = '/images/hero_dairy.jpg';
+                    el.src = '/images/hero_dairy_farm_fresh_1791460606584.jpg';
                   }
                 }}
               />
@@ -328,7 +328,7 @@ export const HomePage: React.FC = () => {
                   const el = e.currentTarget;
                   if (!el.dataset.fallback) {
                     el.dataset.fallback = '1';
-                    el.src = '/images/paneer_curd.jpg';
+                    el.src = '/images/dairy_paneer_curd_spread_1791460618613.jpg';
                   }
                 }}
               />
@@ -426,7 +426,7 @@ export const HomePage: React.FC = () => {
                     const el = e.currentTarget;
                     if (!el.dataset.fallback) {
                       el.dataset.fallback = '1';
-                      el.src = '/images/hero_dairy.jpg';
+                      el.src = '/images/hero_dairy_farm_fresh_1791460606584.jpg';
                     }
                   }}
                 />

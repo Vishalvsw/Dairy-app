@@ -386,7 +386,7 @@ export const BulkOrderPage: React.FC = () => {
                               const el = e.currentTarget;
                               if (!el.dataset.fallback) {
                                 el.dataset.fallback = '1';
-                                el.src = '/images/hero_dairy.jpg';
+                                el.src = '/images/hero_dairy_farm_fresh_1791460606584.jpg';
                               }
                             }}
                           />
