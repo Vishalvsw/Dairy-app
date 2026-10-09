@@ -1,10 +1,10 @@
 import { Product, BulkOrder, Customer, PaymentRecord, AdminSettings } from '../types';
 
-export const HERO_IMAGE = '/src/assets/images/hero_dairy_farm_fresh_1791460606584.jpg';
-export const PANEER_CURD_IMAGE = '/src/assets/images/dairy_paneer_curd_spread_1791460618613.jpg';
-export const GHEE_IMAGE = '/src/assets/images/dairy_ghee_golden_jar_1791460629713.jpg';
-export const SWEETS_IMAGE = '/src/assets/images/dairy_traditional_sweets_1791460640148.jpg';
-export const WEDDING_CATERING_IMAGE = '/src/assets/images/dairy_wedding_bulk_catering_1791460650403.jpg';
+export const HERO_IMAGE = '/src//images/hero_dairy_farm_fresh_1791460606584.jpg';
+export const PANEER_CURD_IMAGE = '/src//images/dairy_paneer_curd_spread_1791460618613.jpg';
+export const GHEE_IMAGE = '/src//images/dairy_ghee_golden_jar_1791460629713.jpg';
+export const SWEETS_IMAGE = '/src//images/dairy_traditional_sweets_1791460640148.jpg';
+export const WEDDING_CATERING_IMAGE = '/src//images/dairy_wedding_bulk_catering_1791460650403.jpg';
 
 export const INITIAL_PRODUCTS: Product[] = [
   {
