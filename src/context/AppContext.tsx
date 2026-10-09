@@ -103,6 +103,16 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
+const migrateImage = (img?: string): string => {
+  if (!img) return '/images/hero_dairy.jpg';
+  if (img.includes('ghee')) return '/images/ghee.jpg';
+  if (img.includes('paneer') || img.includes('curd')) return '/images/paneer_curd.jpg';
+  if (img.includes('sweet')) return '/images/sweets.jpg';
+  if (img.includes('wedding') || img.includes('package') || img.includes('catering')) return '/images/wedding_catering.jpg';
+  if (img.includes('milk') || img.includes('dairy')) return '/images/hero_dairy.jpg';
+  return img;
+};
+
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Persistence
   const [orders, setOrders] = useState<BulkOrder[]>(() => {
@@ -112,7 +122,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [products, setProducts] = useState<Product[]>(() => {
     const saved = localStorage.getItem('dairyflow_products');
-    return saved ? JSON.parse(saved) : INITIAL_PRODUCTS;
+    if (!saved) return INITIAL_PRODUCTS;
+    try {
+      const parsed: Product[] = JSON.parse(saved);
+      return parsed.map((p) => ({
+        ...p,
+        image: migrateImage(p.image)
+      }));
+    } catch {
+      return INITIAL_PRODUCTS;
+    }
   });
 
   const [customers, setCustomers] = useState<Customer[]>(() => {

@@ -97,6 +97,13 @@ export const ProductsPage: React.FC = () => {
                       alt={product.name}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const el = e.currentTarget;
+                        if (!el.dataset.fallback) {
+                          el.dataset.fallback = '1';
+                          el.src = '/images/hero_dairy.jpg';
+                        }
+                      }}
                     />
                     <div className="absolute top-2.5 left-2.5 bg-stone-900/80 backdrop-blur-xs text-white text-[10px] font-semibold px-2 py-0.5 rounded">
                       {product.category}

@@ -382,6 +382,13 @@ export const BulkOrderPage: React.FC = () => {
                             alt={p.name}
                             className="w-12 h-12 rounded-lg object-cover border border-stone-200 shrink-0"
                             referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              const el = e.currentTarget;
+                              if (!el.dataset.fallback) {
+                                el.dataset.fallback = '1';
+                                el.src = '/images/hero_dairy.jpg';
+                              }
+                            }}
                           />
                           <div>
                             <div className="font-semibold text-sm text-stone-900">{p.name}</div>

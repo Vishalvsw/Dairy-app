@@ -18,4 +18,3 @@ View your app in AI Studio: https://ai.studio/apps/44784225-9f70-4148-9160-0b6eb
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
-# Dairy-app

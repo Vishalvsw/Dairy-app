@@ -80,6 +80,13 @@ export const AdminProductsPage: React.FC = () => {
                           alt={product.name}
                           className="w-8 h-8 rounded-md object-cover border border-stone-200 shrink-0"
                           referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            const el = e.currentTarget;
+                            if (!el.dataset.fallback) {
+                              el.dataset.fallback = '1';
+                              el.src = '/images/hero_dairy.jpg';
+                            }
+                          }}
                         />
                         <div>
                           <div className="font-semibold text-stone-900">{product.name}</div>

@@ -157,15 +157,19 @@ export const MobileStorefront: React.FC = () => {
 
             <button
               onClick={() => navigate('/profile')}
-              className="w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-xs shrink-0 ring-1 ring-stone-200 active:scale-95 transition-transform"
+              className="w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-xs shrink-0 ring-1 ring-stone-200 active:scale-95 transition-transform bg-amber-100 flex items-center justify-center text-amber-900 font-bold text-sm"
               title="Open Profile"
             >
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+                src="/images/avatar.svg"
                 alt="User Avatar"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
               />
+              <span className="hidden">R</span>
             </button>
           </div>
 
@@ -208,12 +212,19 @@ export const MobileStorefront: React.FC = () => {
               </div>
             </div>
 
-            <div className="w-28 h-24 relative overflow-hidden rounded-xl shrink-0 shadow-2xs">
+            <div className="w-28 h-24 relative overflow-hidden rounded-xl shrink-0 shadow-2xs bg-stone-100">
               <img
                 src={HERO_IMAGE}
                 alt="Sales of Today Fresh Dairy"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const el = e.currentTarget;
+                  if (!el.dataset.fallback) {
+                    el.dataset.fallback = '1';
+                    el.src = '/images/hero_dairy.jpg';
+                  }
+                }}
               />
             </div>
           </div>
@@ -252,6 +263,13 @@ export const MobileStorefront: React.FC = () => {
                       alt={cat.title}
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const el = e.currentTarget;
+                        if (!el.dataset.fallback) {
+                          el.dataset.fallback = '1';
+                          el.src = '/images/hero_dairy.jpg';
+                        }
+                      }}
                     />
                   </div>
 
@@ -325,6 +343,13 @@ export const MobileStorefront: React.FC = () => {
                   alt={item.name}
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const el = e.currentTarget;
+                    if (!el.dataset.fallback) {
+                      el.dataset.fallback = '1';
+                      el.src = '/images/hero_dairy.jpg';
+                    }
+                  }}
                 />
               </button>
             ))}
@@ -341,6 +366,13 @@ export const MobileStorefront: React.FC = () => {
                 alt="Fresh Artisanal Paneer & Curd"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const el = e.currentTarget;
+                  if (!el.dataset.fallback) {
+                    el.dataset.fallback = '1';
+                    el.src = '/images/hero_dairy.jpg';
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-3.5">
                 <div>
@@ -403,6 +435,13 @@ export const MobileStorefront: React.FC = () => {
                           alt={product.name}
                           className="w-full h-full object-cover"
                           referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            const el = e.currentTarget;
+                            if (!el.dataset.fallback) {
+                              el.dataset.fallback = '1';
+                              el.src = '/images/hero_dairy.jpg';
+                            }
+                          }}
                         />
                       </div>
 

@@ -119,6 +119,13 @@ export const HomePage: React.FC = () => {
                 alt="Fresh farm milk bottles and earthen dairy pots"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const el = e.currentTarget;
+                  if (!el.dataset.fallback) {
+                    el.dataset.fallback = '1';
+                    el.src = '/images/hero_dairy.jpg';
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-stone-950/20 to-transparent"></div>
 
@@ -241,6 +248,13 @@ export const HomePage: React.FC = () => {
                 alt="Wedding Dairy Package Catering Setup"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const el = e.currentTarget;
+                  if (!el.dataset.fallback) {
+                    el.dataset.fallback = '1';
+                    el.src = '/images/hero_dairy.jpg';
+                  }
+                }}
               />
               <div className="absolute top-3 left-3 bg-amber-900/90 text-amber-100 px-2.5 py-1 rounded text-xs font-medium backdrop-blur-xs flex items-center gap-1">
                 <Users className="w-3.5 h-3.5" />
@@ -310,6 +324,13 @@ export const HomePage: React.FC = () => {
                 alt="Function Essentials Paneer and Curd"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const el = e.currentTarget;
+                  if (!el.dataset.fallback) {
+                    el.dataset.fallback = '1';
+                    el.src = '/images/paneer_curd.jpg';
+                  }
+                }}
               />
               <div className="absolute top-3 left-3 bg-stone-900/90 text-stone-100 px-2.5 py-1 rounded text-xs font-medium backdrop-blur-xs flex items-center gap-1">
                 <Users className="w-3.5 h-3.5" />
@@ -401,6 +422,13 @@ export const HomePage: React.FC = () => {
                   alt={product.name}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const el = e.currentTarget;
+                    if (!el.dataset.fallback) {
+                      el.dataset.fallback = '1';
+                      el.src = '/images/hero_dairy.jpg';
+                    }
+                  }}
                 />
                 <div className="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-[11px] font-semibold text-stone-700 px-2 py-0.5 rounded border border-stone-200">
                   {product.category}

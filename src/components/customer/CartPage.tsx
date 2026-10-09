@@ -68,6 +68,13 @@ export const CartPage: React.FC = () => {
                     alt={item.product.name}
                     className="w-14 h-14 object-cover rounded-lg border border-stone-200 shrink-0"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const el = e.currentTarget;
+                      if (!el.dataset.fallback) {
+                        el.dataset.fallback = '1';
+                        el.src = '/images/hero_dairy.jpg';
+                      }
+                    }}
                   />
                   <div>
                     <div className="font-semibold text-sm text-stone-900">{item.product.name}</div>
